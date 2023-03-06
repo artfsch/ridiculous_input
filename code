@@ -1,0 +1,40 @@
+<div class='button'>SKIP INTRO</div>
+<iframe src="https://www.youtube.com/embed/g_4aEFYj3QA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+       
+       
+      body, html{
+  padding: 0;
+  margin: 0;
+}
+
+.button {
+  display: inline-block;
+  padding: 20px;
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  border: solid 3px white;
+	background: rgba(233,233,233, 0.3);
+	color: white;
+  width: 100px;
+  text-align: center;
+  transform: translate(-50%, -50%); /*   Centering your button on its top/left position */
+}
+iframe{
+  width: 100vw;
+  height: 100vh;
+}
+
+var button = document.querySelector(".button");
+
+function randomizePosition(){
+  var randomX = (Math.random() * (window.innerWidth - 200)) + 100; // Adding a 100px padding 
+  var randomY = (Math.random() * (window.innerHeight - 200)) + 100; // Adding a 100px padding 
+  console.log("randomX", randomX, " : randomY", randomY)
+  button.style.left = randomX + "px";
+  button.style.top = randomY + "px";
+}
+randomizePosition();
+
+button.addEventListener("mouseenter", (event) => {
+  randomizePosition();
+});
